@@ -1,0 +1,128 @@
+jp japanese にほんご  にほんごで  日本語  日本語で
+-sov
+-postposition
+# transliteration rule number 2
+-t0{2}
+# capitalization constant
+-t+{御}
+# extra spaces, codepoint in hex
+-t_{3000}
+# hiragana set: hiragana characters, then transliteration of each, then consonant repeater
+-th{あ　い　う　え　お　  か　き　く　け　こ　  さ　し　す　せ　そ  　た　ち　つ　て　と  　な　に　ぬ　ね　の　  は　ひ　ふ　へ　ほ  　ま　み　む　め　も  　や　ゆ　よ　  ら　り　る　れ　ろ  　わ　を　  ん  　が　ぎ　ぐ　げ　ご  　ざ　じ　ず　ぜ　ぞ　  ば　び　ぶ　べ　ぼ  　ぱ　ぴ　ぷ　ぺ　ぽ  　だ　ぢ　づ　で　ど   ゃ　ゅ　ぃ　ぇ　ょ}
+-th{a i u e o ka ki ku ke ko sa si su se so ta ti tu te to na ni nu ne no ha hi hu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo nn ga gi gu ge go za zi zu ze zo ba bi bu be bo pa pi pu pe po da di du de do qa qi qu qe qo}
+-thc{っ}
+# katakana set: katakana characters, transliteration, consonant repeater, vowel extender
+-tk{ア　イ　ウ　エ　オ  　カ　キ　ク　ケ　コ　  サ　シ　ス　セ　ソ　  タ　チ　ツ　テ　ト  　ナ　ニ　ヌ　ネ　ノ　　ハ　ヒ　フ　ヘ　ホ　　　マ　ミ　ム　メ　モ　　ヤ　ユ　ヨ　　ラ　リ　ル　レ　ロ　　ワ　ヲ　　ン　　ガ　ギ　グ　ゲ　ゴ　　ザ　ジ　ズ　ゼ　ゾ　　バ　ビ　ブ　ベ　ボ　　パ　ピ　プ　ペ　ポ　　ダ　ヂ　ヅ　デ　ド　　ャ　ィ　ュ　ェ　ョ}
+-tk{a i u e o ka ki ku ke ko sa si su se so ta ti tu te to na ni nu ne no ha hi hu he ho ma mi mu me mo ya yu yo ra ri ru re ro wa wo nn ga gi gu ge go za zi zu ze zo ba bi bu be bo pa pi pu pe po da di du de do qa qi qu qe qo}
+-tkc{ッ}
+-tk&{ー}
+# number set
+-t1{０　１　２　３　４　５　６　７　８　９}
+-t1{0 1 2 3 4 5 6 7 8 9}
+# symbol set except braces
+-t2{ ＝ ！　＠　＃　＄　％　＾　＆　＊　（　）　＿　＋　−　［　］　『 』 ｜ ： “　” ＜ ＞ ？ 《　》　・　「 」 ＼　 ；　‘　 ’　 、　，　． 。　 ／ ｀}
+-t2{= ! @ # $ % ^ & * ( ) _ + - [ ] " " | : " " < > ? " " . ' ' \ ; ' ' , , . . / `}
+# braces set
+-t({｛　｝}
+
+#-messages
+#cannot transliterate from set #{s} => #{s}の　セットから　書き写すことは できません 
+#cannot transliterate to set #{s} => #{s}の　セットに　書き写すことは できません
+
+-keywords
+BEGIN 御かいし
+END 御おわり
+__ENCODING__ __コード__
+__END__ __おわり__
+__FILE__ __ファイル__
+__LINE__ __ライん__
+alias 別名　べつめい　
+and アンド
+begin 開始　かいし
+break しくじる
+case 状況  じょうきょう
+class 型　かた
+def 述べる　のべる
+defined? のべて？　述べて？ 
+do 実行 じっこう
+else 他 た
+elsif 他の場合　たのばあい
+end 終　おわり
+ensure かくにん　確認
+false 偽　にせ
+for は
+if 場合　ばあい
+in に
+module モジュール
+next 進む　すすむ
+nil 空　そら
+not ノット
+or オア
+redo べつをじっこう　別を実行
+rescue すくう　救う
+retry 再試行　さいしこう
+return 返す　かえす
+self じこ　自己
+super 長　ちょう
+then そのご　その後
+true 本当　ほんとう
+undef 奪い返す　うばいかえす
+unless ないかぎり　ない限り
+until ない一方　ないいっぽう
+when 際　さい
+while かぎり　限り
+yield しょうじる　生じる
+
+-names
+print 書く
+puts 出す
+p 検
+Array 御配列
+Enumerable 御列挙
+String 御弦
+Object 御もの
+BasicObject 御主要のもの
+Kernel 御中核
+main 長
+new 例
+attr_reader 読み与える
+attr_accessor　読み書く与える
+attr_writer 書く与える
+File 御ファイル
+IO　御入出
+Hash 御刻
+Class 御型
+initialize　初期化する
+allocate 割り当てる
+superclass 御上型
+binread 二進読み 
+copystream 流れ移し
+for_fd 記述子の
+foreach それぞれの
+open 開く
+close 閉じる
+pipe 管
+popen プロ開く
+read 読み
+readlines 詩句読み
+Float 御フロート
+Integer 御インテじゃ
+Module　御モジュール
+Regexp　御字式
+Proc　御プロセス
+arity 引数の個数
+binding　装丁
+curry 思い立つ
+lambda? ラムダ?
+hash 刻む
+source_location ソースの場所
+parameters 引数
+to_proc プロセスに
+to_s 弦に
+call 呼ぶ
+eql?　等しい?
+select 撰ぶ
+sysopen シスで開く
+try_convert 変に試みる
+
+

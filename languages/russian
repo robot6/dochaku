@@ -1,0 +1,134 @@
+ru russian ру русский
+# The previous line introduces the file to the transliterator.  It contains a double and full
+# name in both languages.
+
+# Rules in this file start with hyphens.
+
+# The grammar rules follow.
+# Has subject-verb-object ordering
+-svo
+# Uses prepositions, not postpositions
+-preposition
+
+# The transliteration rules fallow.
+#
+# Transliteration occurs when a string of characters is encountered which is not represented
+# in a file.  In this case, a transliterated identifier is created.  For example, in 
+# Russian, "чуть" as an identifier would become "rchutyy", and "Чуть" would become
+# "RCHutyy".  The "r" comes from the character set notation used below.
+#
+# Transliteration rules all start with -t and then something, and have parameters
+# within braces.
+#
+# Transliteration rule 1: a set of capitals exists and is part of the regular set.
+# Use -t0 to declare that we are using rule 1.
+-t0 {1}
+# The russian character set.  Include capitals.  
+# Use -tr to declare that we are using Russian letters.  A single character indicates the
+# character set.   For example, a Japanese set would use "h" for the hiragana set and 
+# "k" for the katakana set.
+-tr {а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я}
+# The transliterated character set.  Capitals are included.  
+# Note that doubles use characters (y and h) which are never used outside of doubles.
+-tr {a b v g d ye yo zh z yi i k l m n o p r s t u f x th ch sh hh hy iy yy e yu ya A B V G D YE YO ZH Z YI I K L M N O P R S T U F X TH CH SH HH HY IY YY E YU YA}
+# the 
+
+# keywords.  All keywords are here.  If several aliases exist for
+# one keyword, simply extend the enty.
+BEGIN НАЧАЛО
+END КОНЕЦ
+__ENCODING__  __КОДИРОВАНИЕ__
+__END__ __КОНЕЦ__
+__FILE__ __ФАЙЛ__
+__LINE__ __СТРОКА__
+alias кличка
+and и
+begin начало
+break прекращи
+case случаи
+class род
+def определи
+defined? определен?
+do поступи
+else иначе
+elsif ли
+end конец
+ensure обеспечи
+false нет
+for следи
+if если
+in из
+module модуль
+next провались
+nil ничто
+not не
+or или
+redo переделай
+rescue спаси
+retry перепробуй
+return возвращи
+self сам
+super высший
+then то
+true есть
+undef разопредели
+unless еслине
+until до
+when когда
+while пока
+yield давай
+
+# Names are items which are used by the code as symbols, such as classes and 
+# methods.
+-names
+print напиши
+puts экнари
+p 　рассмотри
+Array Матрица
+Enumerable Счётный
+String Цепочка
+Object Предмет
+BasicObject ОсновныйПредмет
+Kernel Ядро
+main глава
+new произведи
+attr_reader собств_чтение
+attr_accessor собств_доступ
+attr_writer собств_писец
+File Файл
+IO ВВыход
+Hash Мешанина
+Class Признак
+initialize инициируй
+allocate выделяй
+superclass надпризнак
+binread двоичночитай
+copystream потокскопируй
+for_fd из_опознания
+foreach покаждому
+open открой
+close закрой
+pipe труба
+popen просоткрой
+read читай
+readlines строкичитай
+Float ПлавающоеЧисло
+Integer ЦелоеЧисло
+Module Модуль
+Regexp РегВыражение
+Proc Прок
+arity арность
+binding оковка
+curry бей
+lambda? ламбда?
+hash мешанина
+source_location кодное_положение
+parameters параметры
+to_proc впрок
+to_s вципочку
+call позвони
+eql? равно?
+select выбери
+sysopen сисоткрой
+try_convert попробуй_превратить
+BigNum БолшоеЧисло

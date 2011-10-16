@@ -1,0 +1,9 @@
+
+TODO:
+
+-Add implementation for encodings other than UTF-8.
+-Test multiline documentation, i.e., =begin to =end
+-Implement numbers
+-Check special character handling
+-Include English characters
+-Create inverse mapping

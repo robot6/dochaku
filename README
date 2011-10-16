@@ -1,0 +1,137 @@
+
+Welcome to dochaku (native) Ruby!
+Добро пожаловать в дочаку (родный) Рубин!
+土着のルビーへようこそ!
+
+-----------
+
+Dedication:
+
+久保俊之氏の深い友情に感謝いたします。
+
+-----------
+
+Purpose:
+
+The purpose of this project is to demonstrate that it is effective to have
+computer languages actually written in native languages instead of just English.
+It is discussed on the web in various fora, but this author has seen no 
+implementations.  Admittedly, at the time of this writing, this implementation 
+is not fully developed, but it demonstrates the feasibility of this concept.
+Being able to program in another language has been a long-standing dream
+for the author.
+
+The advantages to programming in one's native language are:
+- speed of learning the language
+- accuracy of writing code
+- introduction of new ways of thinking and new structures from other 
+  languages, leading to an improved language
+- facilates the collaboration among global teams
+
+Ruby was chosen for this implementation because:
+- the author loves Ruby
+- Ruby has great string manipulation techniques
+- Ruby has great iterators
+- Ruby has an excellent literature, that is, base of code which is written
+  in Ruby.  In other words, such code could readily be ported to other native
+  code while continuing to live in Ruby.
+
+-----------
+
+Goal:
+
+Ultimately, the author believes that it would be useful for this capability to
+be implemented directly into the Ruby interpreter.  The small size of this code
+(less than 10k lines) indicates that this is quite feasible. 
+
+-----------
+
+Requirements:
+
+This code was developed on Ruby-1.9.1.  No special hardware is necessary.
+All files are in UTF-8.  Other encodings will be added as possible.  This is 
+on the TODO list.
+
+-----------
+
+Use:
+
+ruby dochaku.rb {filename1}
+
+This use translates filename1 into English Ruby according to the rules below
+and prints the output on the screen.
+
+ruby dochaku.rb -e {filename2}
+
+This use translates filename2 from English Ruby according to the rules below
+and prints the output on the screen.  In other words, this is the inverse
+of the first command.  
+
+NB:
+
+If the following two commands are performed,
+
+ruby dochaku.rb x.rb > y.rb
+ruby dochaku.rb -e y.rb > z.rb
+
+x.rb and z.rb will not necessarily be the same.  This is because the Unicode 
+representation of code in a given language may contain special characters,
+including spaces, which are degenerate in the ASCII set.  For example, 
+there are two braces in the Japanese set, { and ｛, which both map to the 
+ASCII brace, {.  The inverse operation cannot distinguish these braces.  
+Of course, anything in a string or comment is not translated between English
+and the native tongue, and is left alone. 
+
+-----------
+
+Method of translation:
+
+This code is written in three parts.  There is a translator (a parser), a language
+set and a transliterator.
+
+The translator parses the code only as much as necessary to know what must
+be converted.  Characters in strings and comments are simply passed.  Numbers
+are passed.  Interpolated variables, variables, methods, and keywords are translated.
+Symbols are converted to their ASCII equivalents according to a mapping.
+
+To translate a varible, method, or keyword, the string is passed to the language
+set.  If the language set has a direct translation for this item, then that 
+translation is instantly made.  For example,
+
+  Матрица -> Array
+  御配列   -> Array
+
+If this lookup fails, then the item is passed to the transliterator.
+
+  привет    -> rprivet
+  Привет    -> RPrivet
+  きんにちわ  -> hkonnnitiwa
+  コンニチワ  -> kkonnnitiwa
+  御いち     -> HIti
+
+If the item cannot be transliterated, then an error is raised.  Note that the
+transliteration contains the character set used.  In these cases, we see "R" for
+Russian, "H" for Hiragana, "K" for Katakana.  There is no transliteration available
+for Kanji, so this always fails except when 御 is encountered at the beginning of
+a string.  For Japanese, 御 is used to indicate that the resulting English string 
+should be capitalized.
+
+-----------
+
+Declaring a language in a file:
+
+The "preamble" of the code should look thus (taken from examples/fugu-test.rb) :
+
+#!/usr/bin/env ruby -w
+# -*- coding: utf-8 -*-
+#にほんごで
+# aliases: examples/fugu-test.dic
+
+The first two lines are defined by Ruby.  The third line defines the language
+file to use.  In the case of Japanese, any of the following strings are acceptable:
+           jp japanese にほんご  にほんごで  日本語  日本語で
+
+The third line declares another file which contains specific translations of
+certain variables.  Please see examples/fugu-test.dic for an example.
+
+-----------
