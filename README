@@ -1,6 +1,6 @@
 
 Welcome to dochaku (native) Ruby!
-Добро пожаловать в дочаку (родный) Рубин!
+Добро пожаловать в дочаку (родной) Рубин!
 土着のルビーへようこそ!
 
 -----------
@@ -94,11 +94,11 @@ be converted.  Characters in strings and comments are simply passed.  Numbers
 are passed.  Interpolated variables, variables, methods, and keywords are translated.
 Symbols are converted to their ASCII equivalents according to a mapping.
 
-To translate a varible, method, or keyword, the string is passed to the language
+To translate a variable, method, or keyword, the string is passed to the language
 set.  If the language set has a direct translation for this item, then that 
 translation is instantly made.  For example,
 
-  Матрица -> Array
+  Массив  -> Array
   御配列   -> Array
 
 If this lookup fails, then the item is passed to the transliterator.
